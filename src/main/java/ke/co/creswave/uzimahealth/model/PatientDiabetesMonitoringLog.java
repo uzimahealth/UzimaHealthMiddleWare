@@ -26,12 +26,6 @@ public class PatientDiabetesMonitoringLog {
 	
 	private String insulinCor;
 	
-	private String bloodPressure;
-	
-	private String respiratoryRate;
-	
-	private String bodyWeight;
-	
 	private String notes;
 	
 	private long takenBy;
@@ -76,30 +70,6 @@ public class PatientDiabetesMonitoringLog {
 
 	public void setInsulinCor(String insulinCor) {
 		this.insulinCor = insulinCor;
-	}
-
-	public String getBloodPressure() {
-		return bloodPressure;
-	}
-
-	public void setBloodPressure(String bloodPressure) {
-		this.bloodPressure = bloodPressure;
-	}
-
-	public String getRespiratoryRate() {
-		return respiratoryRate;
-	}
-
-	public void setRespiratoryRate(String respiratoryRate) {
-		this.respiratoryRate = respiratoryRate;
-	}
-
-	public String getBodyWeight() {
-		return bodyWeight;
-	}
-
-	public void setBodyWeight(String bodyWeight) {
-		this.bodyWeight = bodyWeight;
 	}
 
 	public String getNotes() {
