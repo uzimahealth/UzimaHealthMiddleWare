@@ -33,6 +33,16 @@ public class CommunityHealthWorker {
 	
 	private double longitude;
 	
+	private String languagesSpoken;
+
+	public String getLanguagesSpoken() {
+		return languagesSpoken;
+	}
+
+	public void setLanguagesSpoken(String languagesSpoken) {
+		this.languagesSpoken = languagesSpoken;
+	}
+
 	public String getLocation() {
 		return location;
 	}

@@ -43,6 +43,16 @@ public class Patient {
 	
 	private String location;
 	
+	private String languagesSpoken;
+
+	public String getLanguagesSpoken() {
+		return languagesSpoken;
+	}
+
+	public void setLanguagesSpoken(String languagesSpoken) {
+		this.languagesSpoken = languagesSpoken;
+	}
+
 	public double getLatitude() {
 		return latitude;
 	}
