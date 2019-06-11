@@ -29,13 +29,29 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ke.co.creswave.uzimahealth.model.ApiResponse;
 import ke.co.creswave.uzimahealth.model.Patient;
+import ke.co.creswave.uzimahealth.model.PatientDiabetesMonitoringLog;
+import ke.co.creswave.uzimahealth.model.PatientDiabetesSettings;
+import ke.co.creswave.uzimahealth.model.PatientDiabetesTherapy;
+import ke.co.creswave.uzimahealth.model.PatientVitals;
+import ke.co.creswave.uzimahealth.repository.PatientDiabetesMonitoringLogRepository;
+import ke.co.creswave.uzimahealth.repository.PatientDiabetesSettingsRepository;
+import ke.co.creswave.uzimahealth.repository.PatientDiabetesTherapyRepository;
 import ke.co.creswave.uzimahealth.repository.PatientRepository;
+import ke.co.creswave.uzimahealth.repository.PatientVitalsRepository;
 
 @RestController
 @RequestMapping(value = "/patient")
 public class PatientController {
 	@Autowired
 	private PatientRepository patientRepository;
+	@Autowired
+	private PatientVitalsRepository patientVitalsRepository;
+	@Autowired
+	private PatientDiabetesSettingsRepository patientDiabetesSettingsRepository;
+	@Autowired
+	private PatientDiabetesTherapyRepository patientDiabetesTheraphyRepository;
+	@Autowired
+	private PatientDiabetesMonitoringLogRepository patientDiabetesMonitoringLogRepository;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public HttpEntity<ApiResponse> registerPatient(
@@ -54,5 +70,41 @@ public class PatientController {
 		patientRepository.save(uploadRequest);
 		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/update/vitals", method = RequestMethod.POST)
+	public HttpEntity<ApiResponse> updatePatientVitals(
+			@Valid @RequestBody PatientVitals uploadRequest, HttpServletRequest request) {
+	
+		ApiResponse apiResponse = new ApiResponse("Patient vitals updated successfully.", 200);
+		patientVitalsRepository.save(uploadRequest);
+		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+	}
 
+	
+	@RequestMapping(value = "/update/diabetessettings", method = RequestMethod.POST)
+	public HttpEntity<ApiResponse> updatePatientDiabetesSettings(
+			@Valid @RequestBody PatientDiabetesSettings uploadRequest, HttpServletRequest request) {
+	
+		ApiResponse apiResponse = new ApiResponse("Patient diabetes settings updated successfully.", 200);
+		patientDiabetesSettingsRepository.save(uploadRequest);
+		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/update/diabetestherapy", method = RequestMethod.POST)
+	public HttpEntity<ApiResponse> updatePatientDiabetesTherapy(
+			@Valid @RequestBody PatientDiabetesTherapy uploadRequest, HttpServletRequest request) {
+	
+		ApiResponse apiResponse = new ApiResponse("Patient diabetes therapy updated successfully.", 200);
+		patientDiabetesTheraphyRepository.save(uploadRequest);
+		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/update/diabetesmonitoringlog", method = RequestMethod.POST)
+	public HttpEntity<ApiResponse> updatePatientDiabetesMonitoringLog(
+			@Valid @RequestBody PatientDiabetesMonitoringLog uploadRequest, HttpServletRequest request) {
+	
+		ApiResponse apiResponse = new ApiResponse("Patient diabetes moniotoring log updated successfully.", 200);
+		patientDiabetesMonitoringLogRepository.save(uploadRequest);
+		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+	}
 }
