@@ -21,7 +21,7 @@ import ke.co.creswave.uzimahealth.model.Doctor;
 @Controller
 @RequestMapping(value = "/shortcode")
 public class ShortCodeController {
-	@GetMapping("/hello-world")
+	@GetMapping("/api")
 	@ResponseBody
 	public ApiResponse sayHello(@RequestParam(name = "from") String from) {
 		return new ApiResponse("success", 200);
